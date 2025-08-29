@@ -186,9 +186,58 @@ class MapViewScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 20,),
-                CommonImageView(
-                  imagePath: Assets.imagesMapDetail,
+                SizedBox(height: 60,),
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    CommonImageView(
+                      imagePath: Assets.imagesMapDetail,
+                    ),
+                    Positioned(
+                      left: 110,
+                        top: -30,
+                        child: Container(
+                         padding: AppSizes.DEFAULT,
+                          decoration: ShapeDecoration(
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(13.12),
+                            ),
+                            shadows: [
+                              BoxShadow(
+                                color: Color(0x0C000000),
+                                blurRadius: 0.94,
+                                offset: Offset(0, 0.94),
+                                spreadRadius: 0.94,
+                              )
+                            ],
+                          ),
+                          child: Column(
+                            children: [
+                              MyText(
+                                text: "Leland Ave",
+                                size: 14,
+                                weight: FontWeight.w600,
+                              ),
+                              SizedBox(height: 5,),
+                              MyText(
+                                text: "Upload Photo",
+                                size: 14,
+                                weight: FontWeight.w700,
+                                color: kBlueColor,
+                              ),
+                              SizedBox(height: 5,),
+                              MyText(
+                                text: "Add Note",
+                                size: 14,
+                                weight: FontWeight.w700,
+                                color: kBlueColor,
+                              ),
+                            ],
+                          ),
+                        ),
+                    ),
+                  ],
                 ),
 
               ],

@@ -41,6 +41,7 @@ class Assets {
   static const String svgLocation = 'assets/svg/location.svg';
   static const String svgLocation1 = 'assets/svg/location1.svg';
   static const String svgLock = 'assets/svg/Lock.svg';
+  static const String svgLogout = 'assets/svg/logout.svg';
   static const String svgMenu = 'assets/svg/menu.svg';
   static const String svgProfile = 'assets/svg/Profile.svg';
   static const String svgSendMessage = 'assets/svg/sendMessage.svg';

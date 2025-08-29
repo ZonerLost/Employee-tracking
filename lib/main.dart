@@ -6,6 +6,7 @@ import 'package:employee_tracking_app/view/screens/auth/verification_screen.dart
 import 'package:employee_tracking_app/view/screens/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'package:employee_tracking_app/view/screens/home/Map_view_screen.dart';
 import 'package:employee_tracking_app/view/screens/home/chat_screen.dart';
+import 'package:employee_tracking_app/view/screens/home/drawer.dart';
 import 'package:employee_tracking_app/view/screens/home/history_screen.dart';
 import 'package:employee_tracking_app/view/screens/home/home_screen.dart';
 import 'package:employee_tracking_app/view/screens/profile/notification_screen.dart';
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(backgroundColor: Colors.white),
       ),
-      home: MapViewScreen(),
+      home: SplashScreen(),
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
     );

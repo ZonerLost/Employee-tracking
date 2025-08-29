@@ -11,70 +11,72 @@ import '../../../generated/assets.dart';
 class BottomSheetHelper {
   static void skippedBottomSheet() {
     Get.bottomSheet(
-      Container(
-        padding: const EdgeInsets.all(20),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                MyText(
-                  text: "Skipped Reason",
-                  size: 16,
-                  weight: FontWeight.w600,
-                ),
-                GestureDetector(
-                  onTap: (){
-                    Get.back();
-                  },
-                  child: MyText(
-                    text: "Cancel",
-                    size: 12,
-                    weight: FontWeight.w500,
-                    fontFamily: AppFonts.inter,
+      SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  MyText(
+                    text: "Skipped Reason",
+                    size: 16,
+                    weight: FontWeight.w600,
+                  ),
+                  GestureDetector(
+                    onTap: (){
+                      Get.back();
+                    },
+                    child: MyText(
+                      text: "Cancel",
+                      size: 12,
+                      weight: FontWeight.w500,
+                      fontFamily: AppFonts.inter,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 25),
+              SelectableList(
+                items: [
+                  "No Soliciting sign",
+                  "Construction Zone",
+                  "Blocked Access",
+                  "Unable to Locate",
+                ],
+              ),
+              SizedBox(height: 25),
+              MyText(
+                text: "Add Photos (Optional)",
+                size: 14,
+                weight: FontWeight.w400,
+              ),
+              SizedBox(height: 12),
+              Container(
+                width: 73,
+                height: 69,
+                decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1, color: kPrimary2Color),
+                    borderRadius: BorderRadius.circular(6),
                   ),
                 ),
-              ],
-            ),
-            SizedBox(height: 25),
-            SelectableList(
-              items: [
-                "No Soliciting sign",
-                "Construction Zone",
-                "Blocked Access",
-                "Unable to Locate",
-              ],
-            ),
-            SizedBox(height: 25),
-            MyText(
-              text: "Add Photos (Optional)",
-              size: 14,
-              weight: FontWeight.w400,
-            ),
-            SizedBox(height: 12),
-            Container(
-              width: 73,
-              height: 69,
-              decoration: ShapeDecoration(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(width: 1, color: kPrimary2Color),
-                  borderRadius: BorderRadius.circular(6),
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: CommonImageView(svgPath: Assets.svgAddBlue),
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: CommonImageView(svgPath: Assets.svgAddBlue),
-              ),
-            ),
-            SizedBox(height: 30),
-            MyButton(onTap: () {}, buttonText: "SUBMIT"),
-          ],
+              SizedBox(height: 30),
+              MyButton(onTap: () {}, buttonText: "SUBMIT"),
+            ],
+          ),
         ),
       ),
       isScrollControlled: true,

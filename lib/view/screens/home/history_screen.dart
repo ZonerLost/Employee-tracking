@@ -29,12 +29,7 @@ class HistoryScreen extends StatelessWidget {
               AppBar(
                 elevation: 0,
                 backgroundColor: Colors.transparent,
-                leading: IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
+                automaticallyImplyLeading: false,
                 title: MyText(
                   text: "Task History",
                   size: 18,

@@ -5,14 +5,13 @@ import 'package:employee_tracking_app/view/custom/my_button.dart';
 import 'package:employee_tracking_app/view/custom/my_text_widget.dart';
 import 'package:employee_tracking_app/view/custom/my_textfeild.dart';
 import 'package:flutter/material.dart';
-
+import 'package:country_code_picker/country_code_picker.dart';
 import '../../../config/constants/app_colors.dart';
 import '../../../generated/assets.dart';
 
-
-
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  final bool showLeading;
+  ProfileScreen({super.key, required this.showLeading});
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +25,23 @@ class ProfileScreen extends StatelessWidget {
           ),
           child: Stack(
             children: [
-              CommonImageView(
-                imagePath:Assets.imagesMaskgroup,
-              ),
+              CommonImageView(imagePath: Assets.imagesMaskgroup),
               AppBar(
                 elevation: 0,
                 backgroundColor: Colors.transparent,
-                leading: IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
+                automaticallyImplyLeading: false,
+                leading:
+                    showLeading
+                        ? IconButton(
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        )
+                        : null,
                 title: MyText(
                   text: "Profile",
                   size: 18,
@@ -57,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: AppSizes.DEFAULT,
-          child: MyButton(onTap: (){}, buttonText: "SAVE"),
+          child: MyButton(onTap: () {}, buttonText: "SAVE"),
         ),
       ),
       body: SingleChildScrollView(
@@ -66,7 +67,7 @@ class ProfileScreen extends StatelessWidget {
           padding: AppSizes.DEFAULT,
           child: Column(
             children: [
-              SizedBox(height: 30,),
+              SizedBox(height: 30),
               Stack(
                 children: [
                   CommonImageView(
@@ -75,38 +76,39 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   Positioned(
                     right: 6,
-                      bottom: 6,
-                      child: CommonImageView(
-                        imagePath: Assets.imagesUploadImage,
-                        height: 20,
-                      ),),
+                    bottom: 6,
+                    child: CommonImageView(
+                      imagePath: Assets.imagesUploadImage,
+                      height: 20,
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
               MyText(
                 text: "Unverified",
                 size: 10,
-                weight: FontWeight.w500,
+                weight: FontWeight.w600,
                 color: kBlueColor,
               ),
-              SizedBox(height: 22,),
+              SizedBox(height: 22),
+              MyTextField(label: "Name", radius: 6),
+              MyTextField(label: "Email", radius: 6),
               MyTextField(
-                label: "Name",
-                radius: 6,
+                label: "Phone number",
+                  radius: 6,
+                prefix: CountryCodePicker(
+                  onChanged: (_) {}, // Required even if unused
+                  initialSelection: 'ES', // Spain
+                  //countryFilter: ['ES'], // Only allow Spain
+                  showFlag: true,
+                  showDropDownButton: true, // Hide dropdown icon
+                  //enabled: false, // Disable interaction
+                  textStyle: const TextStyle(color: Colors.black87),
+                  padding: EdgeInsets.zero,
+                ),
               ),
-              MyTextField(
-                label: "Email",
-                radius: 6,
-              ),
-              MyTextField(
-                label: "Phone Number",
-                radius: 6,
-              ),
-              MyTextField(
-                label: "Address",
-                radius: 6,
-              ),
-
+              MyTextField(label: "Address", radius: 6),
             ],
           ),
         ),
@@ -114,9 +116,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-

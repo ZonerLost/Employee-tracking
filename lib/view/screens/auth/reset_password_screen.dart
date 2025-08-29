@@ -1,5 +1,6 @@
 import 'package:employee_tracking_app/config/constants/app_sizes.dart';
 import 'package:employee_tracking_app/view/custom/my_button.dart';
+import 'package:employee_tracking_app/view/screens/auth/verification_done_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -51,7 +52,7 @@ class ResetPasswordScreen extends StatelessWidget {
                   lineHeight: 1.5,
                 ),
                 SizedBox(height: 26,),
-                MyTextField(
+                MyTextField2(
                   hint: "abc@email.com",
                   prefix: Padding(
                     padding: const EdgeInsets.all(12),
@@ -59,7 +60,9 @@ class ResetPasswordScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 40,),
-                MyButton(onTap: (){}, buttonText: "SEND",),
+                MyButton(onTap: (){
+                  Get.to(() => VerificationDoneScreen());
+                }, buttonText: "SEND",),
                 
               ],
 

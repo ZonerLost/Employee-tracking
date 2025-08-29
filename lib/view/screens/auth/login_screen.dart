@@ -4,7 +4,12 @@ import 'package:employee_tracking_app/view/custom/common_image_view_widget.dart'
 import 'package:employee_tracking_app/view/custom/my_button.dart';
 import 'package:employee_tracking_app/view/custom/my_text_widget.dart';
 import 'package:employee_tracking_app/view/custom/my_textfeild.dart';
+import 'package:employee_tracking_app/view/screens/auth/create_account_screen.dart';
+import 'package:employee_tracking_app/view/screens/auth/verification_screen.dart';
+import 'package:employee_tracking_app/view/screens/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
@@ -41,7 +46,7 @@ class LoginScreen extends StatelessWidget {
                   fontFamily: AppFonts.airbnb,
                 ),
                 SizedBox(height: 20),
-                MyTextField(
+                MyTextField2(
                   hint: "abc@email.com",
                   prefix: Padding(
                     padding: const EdgeInsets.all(12),
@@ -49,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 Obx(
-                  () => MyTextField(
+                  () => MyTextField2(
                     hint: "Your password",
                     isObSecure: isPasswordHidden.value, // Hide/show password
                     prefix: Padding(
@@ -66,8 +71,7 @@ class LoginScreen extends StatelessWidget {
                           svgPath:
                               isPasswordHidden.value
                                   ? Assets.svgHidePassword
-                                  : Assets
-                                      .svgGoogle, // Change icon based on state
+                                  : Assets.svgHidePassword, // Change icon based on state
                         ),
                       ),
                     ),
@@ -101,17 +105,24 @@ class LoginScreen extends StatelessWidget {
                       fontFamily: AppFonts.airbnb,
                     ),
                     Spacer(),
-                    MyText(
-                      text: "Forgot Password?",
-                      size: 14,
-                      weight: FontWeight.w600,
-                      color: kBlackColor,
-                      fontFamily: AppFonts.airbnb,
+                    GestureDetector(
+                      onTap: (){
+                        Get.to(()=>VerificationScreen());
+                      },
+                      child: MyText(
+                        text: "Forgot Password?",
+                        size: 14,
+                        weight: FontWeight.w600,
+                        color: kBlackColor,
+                        fontFamily: AppFonts.airbnb,
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(height: 36),
-                MyButton(onTap: () {}, buttonText: "LOG IN"),
+                MyButton(onTap: () {
+                  Get.off(() => FanBottomNavBar());
+                }, buttonText: "LOG IN"),
                 SizedBox(height: 20),
                 Align(
                   alignment: Alignment.center,
@@ -141,32 +152,37 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 20),
                 Align(
                   alignment: Alignment.center,
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'Don’t have an account?  ',
-                          style: TextStyle(
-                            color: kBlackColor,
-                            fontSize: 15,
-                            fontFamily: AppFonts.airbnb,
-                            fontWeight: FontWeight.w400,
-                            height: 1.67,
+                  child: GestureDetector(
+                    onTap: (){
+                      Get.to(()=>CreateAccountScreen());
+                    },
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Don’t have an account?  ',
+                            style: TextStyle(
+                              color: kBlackColor,
+                              fontSize: 15,
+                              fontFamily: AppFonts.airbnb,
+                              fontWeight: FontWeight.w400,
+                              height: 1.67,
+                            ),
                           ),
-                        ),
-                        TextSpan(
-                          text: 'Sign up',
-                          style: TextStyle(
-                            color: kPrimary2Color,
-                            fontSize: 15,
-                            fontFamily: AppFonts.airbnb,
-                            fontWeight: FontWeight.w400,
-                            height: 1.67,
+                          TextSpan(
+                            text: 'Sign up',
+                            style: TextStyle(
+                              color: kPrimary2Color,
+                              fontSize: 15,
+                              fontFamily: AppFonts.airbnb,
+                              fontWeight: FontWeight.w600,
+                              height: 1.67,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
               ],

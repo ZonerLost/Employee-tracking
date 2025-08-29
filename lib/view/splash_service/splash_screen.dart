@@ -1,4 +1,5 @@
 import 'package:employee_tracking_app/view/custom/my_text_widget.dart';
+import 'package:employee_tracking_app/view/splash_service/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -62,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen>
   void _navigateToHome() {
     Future.delayed(const Duration(milliseconds: 3500), () {
       if (mounted) {
-        Get.offAll(() => LoginScreen());
+        Get.offAll(() => OnboardingScreen());
       }
     });
   }

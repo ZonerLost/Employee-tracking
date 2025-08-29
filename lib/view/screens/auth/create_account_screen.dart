@@ -1,4 +1,5 @@
 import 'package:employee_tracking_app/view/custom/custom_appbar.dart';
+import 'package:employee_tracking_app/view/screens/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -50,14 +51,14 @@ class CreateAccountScreen extends StatelessWidget {
                   fontFamily: AppFonts.airbnb,
                 ),
                 SizedBox(height: 20),
-                MyTextField(
+                MyTextField2(
                   hint: "Full name",
                   prefix: Padding(
                     padding: const EdgeInsets.all(12),
                     child: CommonImageView(svgPath: Assets.svgProfile),
                   ),
                 ),
-                MyTextField(
+                MyTextField2(
                   hint: "abc@email.com",
                   prefix: Padding(
                     padding: const EdgeInsets.all(12),
@@ -65,7 +66,7 @@ class CreateAccountScreen extends StatelessWidget {
                   ),
                 ),
                 Obx(
-                      () => MyTextField(
+                      () => MyTextField2(
                     hint: "Your password",
                     isObSecure: isPasswordHidden.value, // Hide/show password
                     prefix: Padding(
@@ -83,14 +84,14 @@ class CreateAccountScreen extends StatelessWidget {
                           isPasswordHidden.value
                               ? Assets.svgHidePassword
                               : Assets
-                              .svgGoogle, // Change icon based on state
+                              .svgHidePassword, // Change icon based on state
                         ),
                       ),
                     ),
                   ),
                 ),
                 Obx(
-                      () => MyTextField(
+                      () => MyTextField2(
                     hint: "Confirm password",
                     isObSecure: isPasswordHidden.value, // Hide/show password
                     prefix: Padding(
@@ -108,7 +109,7 @@ class CreateAccountScreen extends StatelessWidget {
                           isPasswordHidden.value
                               ? Assets.svgHidePassword
                               : Assets
-                              .svgGoogle, // Change icon based on state
+                              .svgHidePassword, // Change icon based on state
                         ),
                       ),
                     ),
@@ -145,32 +146,37 @@ class CreateAccountScreen extends StatelessWidget {
                 SizedBox(height: 20),
                 Align(
                   alignment: Alignment.center,
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'Already have an account?  ',
-                          style: TextStyle(
-                            color: kBlackColor,
-                            fontSize: 15,
-                            fontFamily: AppFonts.airbnb,
-                            fontWeight: FontWeight.w400,
-                            height: 1.67,
+                  child: GestureDetector(
+                    onTap: (){
+                      Get.to(()=>LoginScreen());
+                    },
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Already have an account?  ',
+                            style: TextStyle(
+                              color: kBlackColor,
+                              fontSize: 15,
+                              fontFamily: AppFonts.airbnb,
+                              fontWeight: FontWeight.w400,
+                              height: 1.67,
+                            ),
                           ),
-                        ),
-                        TextSpan(
-                          text: 'Signin',
-                          style: TextStyle(
-                            color: kPrimary2Color,
-                            fontSize: 15,
-                            fontFamily: AppFonts.airbnb,
-                            fontWeight: FontWeight.w400,
-                            height: 1.67,
+                          TextSpan(
+                            text: 'Signin',
+                            style: TextStyle(
+                              color: kPrimary2Color,
+                              fontSize: 15,
+                              fontFamily: AppFonts.airbnb,
+                              fontWeight: FontWeight.w600,
+                              height: 1.67,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
               ],

@@ -149,7 +149,7 @@ class _MyTextFieldState extends State<MyTextField> {
                   ),
                   labelText: widget.label ?? '',
                   labelStyle: TextStyle(
-                    color: _isFocused ? Colors.red : kGreyTxColor,
+                    color: _isFocused ? kPrimary2Color : kGreyTxColor,
                     fontSize: widget.labelSize ?? 14,
                     fontFamily: AppFonts.poppins,
                     fontWeight: widget.labelWeight ?? FontWeight.w600,
@@ -184,6 +184,7 @@ class _MyTextFieldState extends State<MyTextField> {
     );
   }
 }
+
 
 
 
@@ -231,7 +232,7 @@ class MyTextField2 extends StatefulWidget {
     this.onTap,
     this.focusNode,
     this.radius,
-    this.height = 48,
+    this.height = 56,
     this.Width,
   }) : super(key: key);
 
@@ -279,7 +280,7 @@ class _MyTextField2State extends State<MyTextField2> {
           children: [
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(widget.radius ?? 10),
+                borderRadius: BorderRadius.circular(widget.radius ?? 12),
                 color: Colors.white,
               ),
               child: TextFormField(
@@ -300,22 +301,22 @@ class _MyTextField2State extends State<MyTextField2> {
                   fontWeight: FontWeight.w400,
                   fontFamily: AppFonts.poppins,
                   decoration: TextDecoration.none,
-                  color: kPrimaryColor,
+                  color: kBlackColor,
                 ),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: kCBGColor,
+                  fillColor: widget.filledColor ?? kQuaternaryColor,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: kPrimaryColor,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(widget.radius ?? 10),
+                    borderSide:
+                    BorderSide(color: kPrimary2Color, width: 1),
+                    borderRadius:
+                    BorderRadius.circular(widget.radius ?? 12),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(widget.radius ?? 10),
+                    borderRadius:
+                    BorderRadius.circular(widget.radius ?? 12),
                     borderSide: BorderSide(
-                      color: kWhiteLightColor,
+                      color: kTFBorderColor,
                       width: 1,
                     ),
                   ),
@@ -325,32 +326,36 @@ class _MyTextField2State extends State<MyTextField2> {
                     horizontal: 16,
                     vertical: widget.maxLines! > 1 ? 15 : 0,
                   ),
-                  labelText: widget.label ?? '',
+                  //labelText: widget.label ?? '',
                   labelStyle: TextStyle(
-                    color: kGreyTxColor,
-                    fontSize: widget.labelSize ?? 12,
+                    color: _isFocused ? Colors.red : kGreyTxColor,
+                    fontSize: widget.labelSize ?? 14,
                     fontFamily: AppFonts.poppins,
-                    fontWeight: widget.labelWeight ?? FontWeight.w600,
+                    fontWeight:
+                    widget.labelWeight ?? FontWeight.w600,
                   ),
                   hintText: widget.hint != null ? widget.hint!.tr : '',
                   hintStyle: TextStyle(
-                    fontSize: widget.hintsize ?? 17,
+                    fontSize: widget.hintsize ?? 14,
                     fontFamily: AppFonts.poppins,
-                    color: widget.hintColor ?? kGreyTxColor,
-                    fontWeight: widget.hintWeight ?? FontWeight.w400,
+                    color: widget.hintColor ?? kGreyHColor,
+                    fontWeight:
+                    widget.hintWeight ?? FontWeight.w400,
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(widget.radius ?? 10),
+                    borderRadius:
+                    BorderRadius.circular(widget.radius ?? 12),
                     borderSide: BorderSide(
                       width: 1,
                       color: Colors.red,
                     ),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(widget.radius ?? 10),
+                    borderRadius:
+                    BorderRadius.circular(widget.radius ?? 12),
                     borderSide: BorderSide(
                       width: 1,
-                      color: kPrimaryColor,
+                      color: kPrimary2Color,
                     ),
                   ),
                 ),
@@ -362,3 +367,4 @@ class _MyTextField2State extends State<MyTextField2> {
     );
   }
 }
+

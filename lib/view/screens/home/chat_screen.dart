@@ -48,13 +48,8 @@ class ChatUiScreen extends StatelessWidget {
               CommonImageView(imagePath: Assets.imagesMaskgroup),
               AppBar(
                 elevation: 0,
+                automaticallyImplyLeading: false,
                 backgroundColor: Colors.transparent,
-                leading: IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
                 title: MyText(
                   text: "Chat",
                   size: 18,

@@ -1,3 +1,4 @@
+import 'package:employee_tracking_app/view/screens/auth/reset_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -111,7 +112,9 @@ class VerificationScreen extends StatelessWidget {
                   onCompleted: (pin) {},
                 ),
                 SizedBox(height: 40,),
-                MyButton(onTap: (){}, buttonText: "CONTINUE",),
+                MyButton(onTap: (){
+                  Get.to(() => ResetPasswordScreen());
+                }, buttonText: "CONTINUE",),
                 SizedBox(height: 12,),
                 Align(
                   alignment: Alignment.center,

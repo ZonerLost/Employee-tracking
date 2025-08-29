@@ -3,6 +3,7 @@ import 'package:employee_tracking_app/config/constants/app_sizes.dart';
 import 'package:employee_tracking_app/view/custom/common_image_view_widget.dart';
 import 'package:employee_tracking_app/view/custom/my_button.dart';
 import 'package:employee_tracking_app/view/custom/my_text_widget.dart';
+import 'package:employee_tracking_app/view/screens/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -46,7 +47,9 @@ class VerificationDoneScreen extends StatelessWidget {
               ),
               Spacer(),
               Spacer(),
-              MyButton(onTap: (){}, buttonText: "OKEY"),
+              MyButton(onTap: (){
+                Get.offAll(() => LoginScreen());
+              }, buttonText: "OKEY"),
 
             ],
           ),

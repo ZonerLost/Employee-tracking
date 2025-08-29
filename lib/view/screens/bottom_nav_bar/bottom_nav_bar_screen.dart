@@ -1,4 +1,7 @@
 import 'dart:developer';
+import 'package:employee_tracking_app/view/screens/home/chat_screen.dart';
+import 'package:employee_tracking_app/view/screens/home/history_screen.dart';
+import 'package:employee_tracking_app/view/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../config/constants/app_colors.dart';
@@ -35,10 +38,10 @@ class _FanBottomNavBarState extends State<FanBottomNavBar> {
   }
 
   final List<Widget> screens = [
-    ProfileScreen(),
-    ProfileScreen(),
-    ProfileScreen(),
-    ProfileScreen(),
+    HomeScreen(),
+    ChatUiScreen(),
+    HistoryScreen(),
+    ProfileScreen(showLeading: false,),
   ];
 
   @override

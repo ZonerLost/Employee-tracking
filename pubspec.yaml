@@ -44,6 +44,8 @@ dependencies:
   pinput:
   easy_date_timeline: ^2.0.9
   percent_indicator:
+  flutter_advanced_drawer: ^1.5.0
+  country_code_picker: ^3.4.0
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,8 @@ import 'package:employee_tracking_app/config/constants/app_fonts.dart';
 import 'package:employee_tracking_app/config/constants/app_sizes.dart';
 import 'package:employee_tracking_app/view/custom/common_image_view_widget.dart';
 import 'package:employee_tracking_app/view/custom/my_text_widget.dart';
+import 'package:employee_tracking_app/view/screens/auth/create_account_screen.dart';
+import 'package:employee_tracking_app/view/screens/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart'; // Import GetX
 import '../../config/constants/app_colors.dart';
@@ -32,7 +34,7 @@ class OnboardingScreen extends StatelessWidget {
             children: [
               // Image Slider
               SizedBox(
-                height: 300,
+                height: 350,
                 child: PageView.builder(
                   controller: _pageController,
                   itemCount: images.length,
@@ -101,7 +103,7 @@ class OnboardingScreen extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        // Navigate to login
+                        Get.to(() => LoginScreen());
                       },
                       child: const Text(
                         "LOG IN",
@@ -125,7 +127,7 @@ class OnboardingScreen extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        // Navigate to sign up
+                        Get.to(() => CreateAccountScreen());
                       },
                       child: const Text(
                         "SIGN UP",
